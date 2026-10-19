@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SupportHub.Api.Data;
+using SupportHub.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     )
 );
 
+builder.Services.AddScoped<ITicketService, TicketService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
